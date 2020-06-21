@@ -93,29 +93,66 @@ public class EchoServer extends AbstractServer
    * @param args[0] The port number to listen on.  Defaults to 5555 
    *          if no argument is entered.
    */
-  public static void main(String[] args) 
+  public void handleMessageFromServerUI(String message)
   {
-    int port = 0; //Port to listen on
-
-    try
-    {
-      port = Integer.parseInt(args[0]); //Get port from command line
-    }
-    catch(Throwable t)
-    {
-      port = DEFAULT_PORT; //Set port to 5555
-    }
 	
-    EchoServer sv = new EchoServer(port);
-    
-    try 
-    {
-      sv.listen(); //Start listening for connections
-    } 
-    catch (Exception ex) 
-    {
-      System.out.println("ERROR - Could not listen for clients!");
-    }
+	  	if(message.equals("#quit")) {
+		  		
+		  		System.exit(0);
+		  		
+		  	} 
+		  	
+		  	else if(message.equals("#stop")) {
+		  		
+		  			stopListening();	
+		  	}
+		  
+		  	else if(message.equals("#close")) {
+		  		
+		  			try {
+						close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		  	}
+		  
+		  	else if(message.equals("#start")) {
+		  			try {
+						listen();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		  	}
+		  	else if(message.equals("#getport")) {
+		  	 System.out.println("Port: " + getPort());
+		  	}
+		  
   }
+//  public static void main(String[] args) 
+//  {
+//    int port = 0; //Port to listen on
+//
+//    try
+//    {
+//      port = Integer.parseInt(args[0]); //Get port from command line
+//    }
+//    catch(Throwable t)
+//    {
+//      port = DEFAULT_PORT; //Set port to 5555
+//    }
+//	
+//    EchoServer sv = new EchoServer(port);
+//    
+//    try 
+//    {
+//      sv.listen(); //Start listening for connections
+//    } 
+//    catch (Exception ex) 
+//    {
+//      System.out.println("ERROR - Could not listen for clients!");
+//    }
+//  }
 }
 //End of EchoServer class
