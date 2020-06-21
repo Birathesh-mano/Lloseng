@@ -113,6 +113,8 @@ public class ClientConsole implements ChatIF
    }
    catch(Exception ex) {
 	   System.out.println("Login ID is mandatory");
+	   System.out.println("Terminating Session");
+
 	   System.exit(1);
    }
     
