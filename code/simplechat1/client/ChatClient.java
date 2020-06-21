@@ -59,6 +59,16 @@ public class ChatClient extends AbstractClient
       clientUI.display("Server Connection Lost, Session Will Now Terminate.");
     }
     
+    public void connectionEstablished() {
+  	  String initalMsg = "#login <"+this.loginId+">";
+  	  try {
+  		sendToServer(initalMsg);
+  	} catch (IOException e) {
+  		// TODO Auto-generated catch block
+  		e.printStackTrace();
+  	}
+    }
+    
   
   
   /**
