@@ -109,12 +109,20 @@ public class ChatClient extends AbstractClient
 		  	}
 		  
 		  	else if(message.equals("#login")) {
+		  		
+		  		if(this.isConnected()) {
+		  		
 		  		try {
 					openConnection();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+					clientUI.display("Error : " + e.toString());
+					}
+		  		}
+		  		else {
+		  			clientUI.display("Alredyy Connected");
+		  		}
 		  	}
 		  
 		  	else if(message.equals("#gethost")) {
