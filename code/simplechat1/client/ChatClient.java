@@ -100,6 +100,8 @@ public class ChatClient extends AbstractClient
 		  	else if(message.equals("#logoff")) {
 		  		
 		  		try {
+		  			clientUI.display(this.loginId+ " has disconnected");
+		  			sendToServer(this.loginId+ " has disconnected");
 					closeConnection();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
