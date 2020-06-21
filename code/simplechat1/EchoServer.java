@@ -128,6 +128,19 @@ public class EchoServer extends AbstractServer
 		  	else if(message.equals("#getport")) {
 		  	 System.out.println("Port: " + getPort());
 		  	}
+		  	else if(message.startsWith("#setport")) {
+		  		String portVal = message.substring(9);
+		  		int portNum = Integer.parseInt(portVal);
+		  		
+		  		if(!this.isListening()) {
+		  			this.setPort(portNum);
+		  		}
+		  		else {
+		  			System.out.println("Error: close the server first");
+		  		}
+		  		
+		  		
+		  	}
 		  
   }
 //  public static void main(String[] args) 
