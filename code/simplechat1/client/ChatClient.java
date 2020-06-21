@@ -76,16 +76,72 @@ public class ChatClient extends AbstractClient
    */
   public void handleMessageFromClientUI(String message)
   {
-    try
-    {
-      sendToServer(message);
-    }
-    catch(IOException e)
-    {
-      clientUI.display
-        ("Could not send message to server.  Terminating client.");
-      quit();
-    }
+	  if(message.startsWith("#") && message.length()!= 0) {
+			 
+		  
+		  	if(message.equals("#quit")) {
+		  		
+		  		quit();
+		  		
+		  	}
+		  
+		  	else if(message.equals("#logoff")) {
+		  		
+		  		try {
+					closeConnection();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		  		
+		  	}
+		  
+		  	else if(message.equals("#login")) {
+		  		try {
+					openConnection();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		  	}
+		  
+		  	else if(message.equals("#gethost")) {
+		  		clientUI.display(getHost());
+		  	}
+		  	
+		  	
+		  	else if(message.equals("#getport")) {
+		  		clientUI.display(Integer.toString(getPort()));
+		  	}
+		  	
+		  	else if(message.startsWith("#sethost")) {
+		  		
+		  		String hostVal = message.substring(9);
+		  		int hostNum = Integer.parseInt(hostVal);
+		  		setHost(hostVal);
+		  		
+		  	}
+		  	else if(message.startsWith("#setport")) {
+		  		
+		  		String portVal = message.substring(9);
+		  		int portNum = Integer.parseInt(portVal);
+		  		setPort(portNum);
+		  		
+		  	}
+	  }
+	  
+	  else {
+		    try
+		    {
+		      sendToServer(message);
+		    }
+		    catch(IOException e)
+		    {
+		      clientUI.display
+		        ("Could not send message to server.  Terminating client.");
+		      quit();
+		    }
+	  }
   }
   
   /**
