@@ -118,15 +118,28 @@ public class ChatClient extends AbstractClient
 		  		
 		  		String hostVal = message.substring(9);
 		  		int hostNum = Integer.parseInt(hostVal);
-		  		setHost(hostVal);
+		  		
+		  		if(!this.isConnected()) {
+		  			setHost(hostVal);
+		  		}
+		  		else {
+		  			
+		  			clientUI.display("Error: Client is not logged off");
+		  		}
+		  		
 		  		
 		  	}
 		  	else if(message.startsWith("#setport")) {
 		  		
 		  		String portVal = message.substring(9);
 		  		int portNum = Integer.parseInt(portVal);
-		  		setPort(portNum);
 		  		
+		  		if(!this.isConnected()) {
+		  			setPort(portNum);
+		  		}
+		  		else {
+		  			clientUI.display("Error: Client is not logged off");
+		  		}
 		  	}
 	  }
 	  
