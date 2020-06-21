@@ -118,7 +118,7 @@ public class EchoServer extends AbstractServer
 		  	} 
 		  	
 		  	else if(message.equals("#stop")) {
-		  		
+		  		sendToAllClients("WARNING - Server has stopped listening for connections.");
 		  			stopListening();	
 		  	}
 		  

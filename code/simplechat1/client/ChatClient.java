@@ -137,7 +137,7 @@ public class ChatClient extends AbstractClient
 		  	else if(message.startsWith("#sethost")) {
 		  		
 		  		String hostVal = message.substring(9);
-		  		int hostNum = Integer.parseInt(hostVal);
+		  	
 		  		
 		  		if(!this.isConnected()) {
 		  			setHost(hostVal);
