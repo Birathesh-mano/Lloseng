@@ -49,6 +49,16 @@ public class ChatClient extends AbstractClient
   
   //Instance methods ************************************************
     
+  
+  /**
+   * Display message to Client when server is shuts down
+   */
+    public void connectionClosed() {
+      clientUI.display("Server Connection Lost, Session Will Now Terminate.");
+    }
+    
+  
+  
   /**
    * This method handles all data that comes in from the server.
    *
