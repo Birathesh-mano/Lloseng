@@ -58,7 +58,9 @@ public class ChatClient extends AbstractClient
     public void connectionClosed() {
       clientUI.display("Server Connection Lost, Session Will Now Terminate.");
     }
-    
+   /**
+    *  establishing connection 
+    */
     public void connectionEstablished() {
   	  String initalMsg = "#login <"+this.loginId+">";
   	  try {
@@ -165,6 +167,7 @@ public class ChatClient extends AbstractClient
 		  	}
 		  	
 		  	else {
+		  		//When invalid command is sent (ex logons)
 		  	  try
 			    {
 			      sendToServer(message);

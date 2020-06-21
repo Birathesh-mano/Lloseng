@@ -6,8 +6,11 @@ public class ServerConsole implements ChatIF {
     EchoServer sv;
     int port;
 
-    //Constructors
-
+    
+/**
+ * constructor for server console
+ * @param port
+ */
     public ServerConsole(int port){
 
       this.port = port;
@@ -21,12 +24,17 @@ public class ServerConsole implements ChatIF {
         }
 
     }
-
+/**
+ * show message
+ * @param message
+ */
 
     public void display(String message){
         System.out.println(message);
     }
-    
+    /**
+     * take in server input
+     */
     public void accept() 
     {
       try

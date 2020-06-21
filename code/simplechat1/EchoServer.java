@@ -87,14 +87,20 @@ public class EchoServer extends AbstractServer
       ("Server has stopped listening for connections.");
   }
   
-  
+  /**
+   * Notifies when client connects
+   * @param client
+   */
   
   public void clientConnected(ConnectionToClient client) {
 	    System.out.println("A client has connected");
 	  }
 
 
-  
+  /**
+   * notifies when client disconnects
+   * @param client
+   */
   public void clientDisconnected(ConnectionToClient client) {
 		      System.out.println("A client has disconnected");
 		    }
