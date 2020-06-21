@@ -108,9 +108,9 @@ public class EchoServer extends AbstractServer
    * @param args[0] The port number to listen on.  Defaults to 5555 
    *          if no argument is entered.
    */
-  public void handleMessageFromServerUI(String message)
+  public boolean handleMessageFromServerUI(String message)
   {
-	
+	boolean command = true;
 	  	if(message.equals("#quit")) {
 		  		
 		  		System.exit(0);
@@ -156,7 +156,11 @@ public class EchoServer extends AbstractServer
 		  		
 		  		
 		  	}
+		  	else {
+		  		command = false;
+		  	}
 		  
+	  	return command;
   }
 //  public static void main(String[] args) 
 //  {

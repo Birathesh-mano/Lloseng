@@ -161,6 +161,20 @@ public class ChatClient extends AbstractClient
 		  			clientUI.display("Error: Client is not logged off");
 		  		}
 		  	}
+		  	
+		  	else {
+		  	  try
+			    {
+			      sendToServer(message);
+			    }
+			    catch(IOException e)
+			    {
+			      clientUI.display
+			        ("Could not send message to server.  Terminating client.");
+			      quit();
+			    }
+		  		
+		  	}
 	  }
 	  
 	  else {

@@ -41,7 +41,11 @@ public class ServerConsole implements ChatIF {
           
           if(message.startsWith("#") && message.length()!= 0) {
        		 
-        	  sv.handleMessageFromServerUI(message);  		  
+        	  if(!sv.handleMessageFromServerUI(message)) {
+        		  message = "SERVER MSG> " + message;
+                  display(message);
+                  sv.sendToAllClients(message);
+        	  }
           }
           else {
         	  
